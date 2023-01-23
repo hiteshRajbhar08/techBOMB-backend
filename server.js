@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv').config();
 const colors = require('colors');
+const cors = require('cors');
 const { notFound, errorHandler } = require('./middlewares/errorMiddleware');
 const connectDB = require('./config/db');
 const productRoute = require('./routes/productRoute');
@@ -14,6 +15,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 // routes middleware
 app.use('/api/products', productRoute);
