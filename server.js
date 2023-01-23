@@ -5,7 +5,7 @@ const cors = require('cors');
 const { notFound, errorHandler } = require('./middlewares/errorMiddleware');
 const connectDB = require('./config/db');
 const productRoute = require('./routes/productRoute');
-// const userRoute = require('./routes/userRoute');
+const userRoute = require('./routes/userRoute');
 // const orderRoute = require('./routes/orderRoute');
 
 // connect database
@@ -19,7 +19,7 @@ app.use(cors());
 
 // routes middleware
 app.use('/api/products', productRoute);
-// app.use('/api/users', userRoute);
+app.use('/api/users', userRoute);
 // app.use('/api/orders', orderRoute);
 
 app.get('/', (req, res) => {
