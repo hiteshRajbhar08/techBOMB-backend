@@ -96,9 +96,17 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
+//          -----      ADMIN     -------
+// get all users   =>  /api/users
+const getUsers = asyncHandler(async (req, res) => {
+  const users = await User.find({});
+  res.json(users);
+});
+
 module.exports = {
   loginUser,
   getUserProfile,
   registerUser,
   updateUserProfile,
+  getUsers,
 };
